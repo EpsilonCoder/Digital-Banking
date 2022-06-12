@@ -1,5 +1,6 @@
 package com.epsilon.banking.enums;
 
-public class OperationType {
-
+public enum OperationType {
+    
+	DEBIT, CREDIT
 }

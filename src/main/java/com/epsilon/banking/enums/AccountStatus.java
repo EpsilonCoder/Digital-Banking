@@ -1,5 +1,7 @@
 package com.epsilon.banking.enums;
 
-public class AccountStatus {
+public enum AccountStatus {
+	
+	CREATED,ACTIVATED ,SUSPENDED;
 
 }

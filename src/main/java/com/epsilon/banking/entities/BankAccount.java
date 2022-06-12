@@ -3,7 +3,15 @@ package com.epsilon.banking.entities;
 import java.util.Date;
 import java.util.List;
 
+
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import com.epsilon.banking.enums.AccountStatus;
 
@@ -15,15 +23,19 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Inheritance(strategy = InheritanceType.JOINED)
+//@DiscriminatorColumn(name = "Type",length = 4,discriminatorType = DiscriminatorType.STRING)
 public class BankAccount {
-	
+	@Id
 	private String id;
 	private double balance;
 	private Date createAt;
-	
-	//Creons ici un enumerateur 
+	@Enumerated(EnumType.STRING)
 	private AccountStatus status; 
+	@ManyToOne
 	private Customer customer;
+	
+	@OneToMany(mappedBy = "bankAccount")
 	private List<AccountOperation> accountOperations;
 	
 
