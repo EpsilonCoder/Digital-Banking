@@ -3,7 +3,8 @@ package com.epsilon.banking.entities;
 import java.util.Date;
 import java.util.List;
 
-
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -24,7 +25,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-//@DiscriminatorColumn(name = "Type",length = 4,discriminatorType = DiscriminatorType.STRING)
+@DiscriminatorColumn(name = "Type",length = 4,discriminatorType = DiscriminatorType.STRING)
 public class BankAccount {
 	@Id
 	private String id;

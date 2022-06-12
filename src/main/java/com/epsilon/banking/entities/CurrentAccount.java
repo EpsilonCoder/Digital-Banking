@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-//@DiscriminatorValue("CUR")
+@DiscriminatorValue("CUR")
 @NoArgsConstructor
 @AllArgsConstructor
 public class CurrentAccount extends BankAccount {
